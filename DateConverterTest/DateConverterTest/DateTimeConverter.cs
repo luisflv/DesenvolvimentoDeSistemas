@@ -27,7 +27,6 @@ namespace DateConverterTest
      
         }
 
-
         public string ToHours(DateTime now, DateTime post)
         {
             var dif = now - post;
@@ -62,7 +61,7 @@ namespace DateConverterTest
         {
             var dif = now - post;
 
-            if (dif.Days == 7)
+            if (dif.Days >= 7)
             {
                 return ("1 semana atras");
             }
@@ -72,6 +71,26 @@ namespace DateConverterTest
                 return null;
             }
         }
+
+        public string ToMonths(DateTime now, DateTime post)
+        {
+            var dif = now - post;
+
+            if (dif.Days == 30)
+            {
+                return ("1 mes atras");
+            }
+
+            else
+            {
+                int totalMes = dif.Days;
+
+                totalMes = totalMes / 30;
+
+                return totalMes.ToString() + " meses atras";
+            }
+        }
+
 
     }
 }
