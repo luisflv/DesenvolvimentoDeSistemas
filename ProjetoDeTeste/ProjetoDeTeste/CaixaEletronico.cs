@@ -36,12 +36,14 @@ namespace ProjetoDeTeste
 
         public void Sacar(double valor)
         {
-            if (valor <= 0)
+            if (valor > Saldo)
             {
-                Saldo = 0;
+                throw new ArgumentException("VALOR INVÁLIDO", "valor");
             }
-            
-            Saldo = Saldo - valor;
+            else
+            {
+                Saldo = Saldo - valor;
+            }
         }
 
 

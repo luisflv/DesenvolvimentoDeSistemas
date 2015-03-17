@@ -58,22 +58,31 @@ namespace ProjetoDeTeste
             _caixaEletronico.Depositar(70);
             _caixaEletronico.Sacar(50);
 
-            Assert.AreEqual(20,_caixaEletronico.Saldo);
+            Assert.AreEqual(20,_caixaEletronico.Saldo, "teste");
 
 
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-
-
-        public void Quando_Depositar_Valores_Negativos_Lancar_Exception()
+        public void Quando_Depositar_Valores_Negativos_Lancar_Excessao()
         {
             _caixaEletronico.Depositar(-30);
 
             
         }
 
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void Quando_Depositar_1_E_Sacar_3_Lancar_Excessao()
+        
+        {
+            _caixaEletronico.Depositar(1);
+            _caixaEletronico.Sacar(3);
+
+
+        }
 
     }
 }
